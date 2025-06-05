@@ -149,7 +149,10 @@ const MainPage = () => {
           </TableRow>
 
           {[...contests].reverse().map((contest, index) => {
-            const d = new Date(contest.startTime).toLocaleString().split(", ");
+            // Subtract 5 hours 30 minutes (in ms) from startTime
+            const offsetMs = (5 * 60 + 30) * 60 * 1000;
+            const adjustedDate = new Date(new Date(contest.startTime).getTime() - offsetMs);
+            const d = adjustedDate.toLocaleString().split(", ");
             const live = isLive(contest.startTime, contest.duration);
             const completed = isCompleted(contest.startTime, contest.duration);
 
