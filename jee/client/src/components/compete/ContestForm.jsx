@@ -15,9 +15,7 @@ const ContestForm = () => {
         const data = { ...formmData };
 
         // Convert local datetime string to UTC ISO format
-        const localDate = new Date(data.startTime);
-        const utcDate = new Date(localDate.getTime() - localDate.getTimezoneOffset() * 60000);
-        data.startTime = utcDate.toISOString();
+        data.startTime = new Date(data.startTime).toISOString();
 
         try {
             await axios.post("https://je2-backend.onrender.com/api/v1/createContest", data);

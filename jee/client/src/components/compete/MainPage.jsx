@@ -128,6 +128,7 @@ const MainPage = () => {
 
   const isLive = (startTime, duration) => {
     const start = new Date(startTime).getTime();
+     console.log("Start Time:", startTime);
     const end = start + duration * 60 * 1000;
     return now >= start && now <= end;
   };
@@ -149,7 +150,13 @@ const MainPage = () => {
           </TableRow>
 
           {[...contests].reverse().map((contest, index) => {
-            const d = new Date(contest.startTime).toLocaleString().split(", ");
+            // Remove the timeZone option if backend already sends IST
+            const d = new Date(contest.startTime).toLocaleString('en-IN', {
+              dateStyle: 'medium',
+              timeStyle: 'short',
+              timeZone: 'Asia/Kolkata' // Force IST display
+            });
+
             const live = isLive(contest.startTime, contest.duration);
             const completed = isCompleted(contest.startTime, contest.duration);
 
@@ -181,7 +188,7 @@ const MainPage = () => {
                     <p key={ind}>{writer}</p>
                   ))}
                 </TableCell>
-                <TableCell>{d[0]}<br />{d[1]}</TableCell>
+                <TableCell>{d}</TableCell>
                 <TableCell>{contest.duration}</TableCell>
               </TableRow>
             );
