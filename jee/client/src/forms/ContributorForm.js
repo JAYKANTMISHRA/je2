@@ -89,7 +89,8 @@ const ContributorForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("https://je2-frontend01.onrender.com/api/v1/createProblem", formData);
+            const response = await axios.post("https://je2-backend.onrender.com/api/v1/createProblem", formData);
+            
             setFormmdata(prev => ({
                 ...prev,
                 questions: [...prev.questions, [response.data.data._id, response.data.data.statement]]
