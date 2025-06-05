@@ -122,7 +122,6 @@ const MainPage = () => {
     const interval = setInterval(() => {
       setNow(Date.now());
     }, 30000); // update every 30 seconds
-
     return () => clearInterval(interval);
   }, []);
 
@@ -149,10 +148,10 @@ const MainPage = () => {
           </TableRow>
 
           {[...contests].reverse().map((contest, index) => {
-            // Subtract 5 hours 30 minutes (in ms) from startTime
-            const offsetMs = (5 * 60 + 30) * 60 * 1000;
-            const adjustedDate = new Date(new Date(contest.startTime).getTime() - offsetMs);
-            const d = adjustedDate.toLocaleString().split(", ");
+            const localTime = new Date(contest.startTime).toLocaleString("en-IN", {
+              timeZone: "Asia/Kolkata"
+            });
+            const [date, time] = localTime.split(", ");
             const live = isLive(contest.startTime, contest.duration);
             const completed = isCompleted(contest.startTime, contest.duration);
 
@@ -184,7 +183,7 @@ const MainPage = () => {
                     <p key={ind}>{writer}</p>
                   ))}
                 </TableCell>
-                <TableCell>{d[0]}<br />{d[1]}</TableCell>
+                <TableCell>{date}<br />{time}</TableCell>
                 <TableCell>{contest.duration}</TableCell>
               </TableRow>
             );
