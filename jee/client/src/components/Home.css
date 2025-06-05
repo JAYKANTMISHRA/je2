@@ -1,0 +1,48 @@
+.container_1{
+  position: relative;
+  top: 0;
+  width: 100%;
+  height: 70vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.text_1 {
+  font-family: 'Crimson Text', serif;
+  font-size: large;
+  text-align: left;
+  margin-left: 100px;
+}
+
+.student_img{
+  overflow: hidden;
+  margin-top: 5vh;
+  height: 600px;
+  width: 600px;
+}
+
+.learn-more-btn {
+  background: linear-gradient(to right, #fdc830, #f37335);
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 15px 340px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.learn-more-btn:hover {
+  background: linear-gradient(to right, #f37335, #fdc830);
+  transform: scale(1.05);
+}
+
+.grad {
+  background: linear-gradient(to right , #000000,#2C3E50);
+}
