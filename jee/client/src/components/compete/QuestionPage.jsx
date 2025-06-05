@@ -52,7 +52,7 @@ const QuestionPage = () => {
   // Fetch all questions from server
   const fetchRes = async (id) => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/v1/getProblem/${id}`);
+      const res = await axios.get(`https://je2-backend.onrender.com/api/v1/getProblem/${id}`);
       console.log('Fetched question:', res);
       return res.data.data;
     } catch (error) {

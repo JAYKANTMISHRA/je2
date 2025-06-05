@@ -58,7 +58,7 @@ const ProblemList = () => {
   const fetchData = async (userId) => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/v1/${text}?userId=${userId}`
+        `https://je2-backend.onrender.com/api/v1/${text}?userId=${userId}`
       );
       setData(res.data.data || []);
     } catch (err) {
@@ -69,7 +69,7 @@ const ProblemList = () => {
   const resolveStatus = async (userId) => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/v1/getSolvedProblem?userId=${userId}`
+        `https://je2-backend.onrender.com/api/v1/getSolvedProblem?userId=${userId}`
       );
       setArr(res.data.data || []);
     } catch (err) {

@@ -138,7 +138,7 @@ const UserProfile = () => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get(`http://localhost:5000/api/v1/getUserData?urlId=${urlId}&userId=${storedData._id}`);
+            const response = await axios.get(`https://je2-backend.onrender.com/api/v1/getUserData?urlId=${urlId}&userId=${storedData._id}`);
             setAllData(response.data);
             setIsFriend(response.data.data.friend);
         } catch (err) {
@@ -154,9 +154,9 @@ const UserProfile = () => {
         try {
             let response;
             if (isFriend === false) {
-                response = await axios.put(`http://localhost:5000/api/v1/addFriend?friendId=${urlId}&userId=${storedData._id}`);
+                response = await axios.put(`https://je2-backend.onrender.com/api/v1/addFriend?friendId=${urlId}&userId=${storedData._id}`);
             } else {
-                response = await axios.put(`http://localhost:5000/api/v1/removeFriend?friendId=${urlId}&userId=${storedData._id}`);
+                response = await axios.put(`https://je2-backend.onrender.com/api/v1/removeFriend?friendId=${urlId}&userId=${storedData._id}`);
             }
             setIsFriend(!isFriend);
             console.log(response.data);

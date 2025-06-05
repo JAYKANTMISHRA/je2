@@ -107,7 +107,7 @@ const MainPage = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/v1/getContest");
+      const response = await axios.get("https://je2-backend.onrender.com/api/v1/getContest");
       setContests(response.data.data || []);
     } catch (error) {
       console.error("Error fetching contests:", error);

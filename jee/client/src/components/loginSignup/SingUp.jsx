@@ -30,7 +30,7 @@ function SignUpForm() {
     evt.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/v1/signup",
+        "https://je2-backend.onrender.com/api/v1/signup",
         state,
         {
           headers: {

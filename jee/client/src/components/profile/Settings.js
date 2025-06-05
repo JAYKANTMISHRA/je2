@@ -92,7 +92,7 @@ const Settings = () => {
     const handleSettingsChanges = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.put(`http://localhost:5000/api/v1/updateUser`, {
+            const response = await axios.put(`https://je2-backend.onrender.com/api/v1/updateUser`, {
                 oldPassword: state.oldPassword,
                 newPassword: state.newPassword,
                 cnfPassword: state.cnfPassword,

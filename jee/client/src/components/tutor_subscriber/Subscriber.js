@@ -66,7 +66,7 @@ const Subscriber = () => {
     const { darkMode } = useContext(ModeContext);
 
     const checkoutHandler = async (amount) => {
-        const { data: { key } } = await axios.get("http://localhost:5000/api/v1/getkey");
+        const { data: { key } } = await axios.get("https://je2-backend.onrender.com/api/v1/getkey");
         const { data: { order } } = await axios.post("https://je-2-backend.onrender.com/api/v1/checkout", { amount });
         const options = {
             key,

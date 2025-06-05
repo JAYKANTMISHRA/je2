@@ -72,7 +72,7 @@ const Friends = () => {
     const fetchData = async () => {
         try {
             const storedData = JSON.parse(Cookies.get('userData'));
-            const response = await axios.get(`http://localhost:5000/api/v1/getFriendList?userId=${storedData._id}`);
+            const response = await axios.get(`https://je2-backend.onrender.com/api/v1/getFriendList?userId=${storedData._id}`);
             if (response.data.data.length) setFriendList(response.data.data);
             else setFriendList([]);
         } catch (err) {

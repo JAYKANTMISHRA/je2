@@ -9,7 +9,7 @@ const ContestForm = () => {
     const {handleChange,formmData}=useContext(CompeteContext);
     const handleSubmit = async (e) =>{
         e.preventDefault();
-        const response = await axios.post("http://localhost:5000/api/v1/createContest",formmData);
+        const response = await axios.post("https://je2-backend.onrender.com/api/v1/createContest",formmData);
         navigate(-1);
     }
 
